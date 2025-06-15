@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Fira+Sans&display=swap');
+
+body {
+  min-height: 100vh;           /* prend toute la hauteur de l'écran */
+  margin: 0;
+  padding: 0;
+  display: flex;               /* active le centrage */
+  justify-content: center;    /* centre horizontalement */
+  align-items: center;        /* centre verticalement */
+  background: linear-gradient(145deg, #000, #1c1c1c);
+  font-family: 'Fira Sans', sans-serif;
+  color: white;
+}
+
+.app {
+  width: 80%;
+  max-width: 800px;
+  margin: 2rem auto;
+  align-items: center;
+  padding: 2rem;
+  background: #222;
+  border: 3px solid gold;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+  text-align: center;
+}
+
+h1 {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 3rem;
+  color: #e6c200;
+  letter-spacing: 0.1em;
+  text-shadow: 2px 2px 0 #000, 0 0 12px #bfa046;
+  margin-bottom: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+select, input {
+  padding: 0.7rem 1.2rem;
+  width: 80%;
+  font-size: 1.15rem;
+  border-radius: 10px;
+  border: 2px solid #bfa046;
+  background: #2d1e2f;
+  color: #f8e9c1;
+  text-align: center;
+  font-family: 'Fira Sans', sans-serif;
+  box-shadow: 0 2px 8px #0006;
+}
+
+button {
+  font-size: 1.15rem;
+  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #e6c200;
+  border-radius: 16px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  background: linear-gradient(90deg, #3a2a3a 60%, #bfa046 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px #0008;
+  transition: all 0.3s cubic-bezier(.4,2,.6,1);
+}
+
+button[type="submit"] {
+  background: linear-gradient(90deg, #bfa046 60%, #3a2a3a 100%);
+  color: #2d1e2f;
+  border-color: #e6c200;
+}
+
+button.reset {
+  background: linear-gradient(90deg, #a83232 60%, #3a2a3a 100%);
+  color: #fff;
+  border-color: #a83232;
+  margin-top: 1rem;
+}
+
+table {
+  width: 100%;
+  margin-top: 2.5rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 1.15rem;
+  background: rgba(44, 30, 50, 0.95);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 0 18px #000a;
+}
+
+th, td {
+  padding: 1rem 0.7rem;
+  border-bottom: 2px solid #bfa046;
+  text-align: center;
+}
+
+th {
+  background: #1a1a1a;
+  color: #e6c200;
+  font-size: 1.2rem;
+  font-family: 'UnifrakturCook', cursive;
+  letter-spacing: 0.05em;
+  border-bottom: 3px double #bfa046;
+}
+
+tr:nth-child(1) td {
+  background: linear-gradient(90deg, #e6c200 80%, #bfa046 100%);
+  color: #2d1e2f;
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-shadow: 1px 1px 0 #fff5;
+}
+
+tr:nth-child(2) td {
+  background: linear-gradient(90deg, #bfbfbf 80%, #e6e6e6 100%);
+  color: #2d1e2f;
+  font-weight: bold;
+}
+
+tr:nth-child(3) td {
+  background: linear-gradient(90deg, #b87333 80%, #cd7f32 100%);
+  color: #2d1e2f;
+  font-weight: bold;
+}
+
+tr:not(:nth-child(-n+3)) td {
+  background: rgba(44, 30, 50, 0.85);
+}
+
+td:first-child {
+  font-size: 1.3rem;
+  font-family: 'UnifrakturCook', cursive;
+  color: #e6c200;
+  letter-spacing: 0.05em;
+}
+
+td {
+  border-right: 1px solid #bfa046;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
