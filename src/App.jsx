@@ -2,8 +2,8 @@ import { useEffect, useState, useRef } from "react";
 import "./App.css";
 
 const initialPlayers = [
-  "Alice", "Bob", "Charlie", "Diana", "Eliott", "Fatou", "Gwen",
-  "Hugo", "Isa", "Jules", "Karim", "Léna", "Mina", "Noé", "Omar"
+  "Victoria", "Gabriel", "Laura", "La Mama", "El Papa", "Mélissa", "Arun",
+  "Hugo", "Shirley", "Owaney", "Raphaël", "Enzo", "Stephan", "Aymeric", "Jerysan", "Areni", "Clément"
 ];
 
 function App() {
@@ -14,9 +14,9 @@ function App() {
 
   const [selectedPlayer, setSelectedPlayer] = useState("");
   const [newScore, setNewScore] = useState("");
+  const [showInputs, setShowInputs] = useState(true);
   const prevOrder = useRef([]);
 
-  // Sauvegarde l'ordre précédent avant chaque update
   useEffect(() => {
     prevOrder.current = [...players].sort((a, b) => b.score - a.score).map(p => p.name);
   }, [players]);
@@ -29,20 +29,17 @@ function App() {
     e.preventDefault();
     if (!selectedPlayer || isNaN(newScore) || newScore === "") return;
 
-    // Sauvegarde l'ordre avant update
     const before = [...players].sort((a, b) => b.score - a.score).map(p => p.name);
 
-    // Met à jour le score
+    // Met à jour le score en le remplaçant, pas en l'ajoutant
     const updated = players.map(player =>
       player.name === selectedPlayer
-        ? { ...player, score: player.score + parseInt(newScore) }
+        ? { ...player, score: parseInt(newScore) }
         : player
     );
 
-    // Trie après update
     const after = [...updated].sort((a, b) => b.score - a.score).map(p => p.name);
 
-    // Cherche si le joueur est monté dans le classement
     const oldIndex = before.indexOf(selectedPlayer);
     const newIndex = after.indexOf(selectedPlayer);
 
@@ -59,7 +56,6 @@ function App() {
 
     setPlayers(withRise);
 
-    // Retire l'animation après 1.2s
     setTimeout(() => {
       setPlayers(current =>
         current.map(player => ({ ...player, hasJustRisen: false }))
@@ -82,6 +78,15 @@ function App() {
   return (
     <div className="app">
       <h1>🏆 Classement Soirée Jeux</h1>
+
+      <button
+        className="button-style"
+        onClick={() => setShowInputs(!showInputs)}
+      >
+        {showInputs ? "🙈 Cacher les entrées" : "👁️ Montrer les entrées"}
+      </button>
+
+    {showInputs && (
       <form onSubmit={handleSubmit}>
         <select
           value={selectedPlayer}
@@ -102,10 +107,10 @@ function App() {
           onChange={(e) => setNewScore(e.target.value)}
         />
 
-        <button type="submit">Ajouter</button>
+        <button type="submit" className="button-style">Ajouter</button>
       </form>
-
-      <button className="reset" onClick={resetScores}>🔁 Réinitialiser</button>
+    )}
+      <button className="button-style" onClick={resetScores}>🔁 Réinitialiser</button>
 
       <table>
         <tbody>
@@ -113,7 +118,7 @@ function App() {
             <tr key={player.name} className={player.hasJustRisen ? "tr-rising" : ""}>
               <td>{index + 1}</td>
               <td>{player.name}</td>
-              <td>{player.score > 0 ? `$${player.score}` : ""}</td>
+              <td>{player.score !== 0 ? `$${player.score}` : ""}</td>
             </tr>
           ))}
         </tbody>

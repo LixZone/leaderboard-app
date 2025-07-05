@@ -4,25 +4,30 @@ body {
   min-height: 100vh;           /* prend toute la hauteur de l'écran */
   margin: 0;
   padding: 0;
+  background: rgba(0, 0, 0, 0.3); /* noir transparent, laisse l’image visible */
   display: flex;               /* active le centrage */
   justify-content: center;    /* centre horizontalement */
   align-items: center;        /* centre verticalement */
-  background: linear-gradient(145deg, #000, #1c1c1c);
-  font-family: 'Fira Sans', sans-serif;
-  color: white;
+  filter: none;
+  backdrop-filter: none;
+  background: url('/bg-casino.jpg') no-repeat center center fixed;
+  background-size: cover;
+  image-rendering: crisp-edges; /* ou 'high-quality' selon navigateur */
+  font-family: 'Cinzel', serif;
+  color: #f0d18c;
 }
 
 .app {
   width: 80%;
   max-width: 800px;
   margin: 2rem auto;
-  align-items: center;
   padding: 2rem;
-  background: #222;
+  background: rgba(0, 0, 0, 0.3); /* Fond noir transparent */
   border: 3px solid gold;
   border-radius: 16px;
   box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
   text-align: center;
+  backdrop-filter: none; /* au cas où du flou est appliqué */
 }
 
 h1 {
@@ -145,4 +150,61 @@ td {
 
 tr:last-child td {
   border-bottom: none;
+}
+
+.control-button {
+  background: linear-gradient(145deg, #1c1c1c, #2a2a2a);
+  border: 1px solid #444;
+  color: #f0d18c; /* doré pale */
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  margin: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Georgia', serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.control-button:hover {
+  background: #2d2d2d;
+  border-color: #f0d18c;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.toggle-button {
+  margin-bottom: 1.5rem;
+  padding: 10px 18px;
+  background-color: transparent;
+  border: 2px solid gold;
+  color: gold;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.toggle-button:hover {
+  background-color: rgba(255, 215, 0, 0.15);
+  transform: scale(1.03);
+}
+
+.button-style {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-family: 'Cinzel', serif;
+  color: gold;
+  background-color: transparent;
+  border: 2px solid gold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0.5rem;
+}
+
+.button-style:hover {
+  background-color: rgba(255, 215, 0, 0.15);
+  transform: scale(1.05);
 }
