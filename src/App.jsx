@@ -3,7 +3,7 @@ import "./App.css";
 
 const initialPlayers = [
   "Victoria", "Gabriel", "Laura", "La Mama", "El Papa", "Mélissa", "Arun",
-  "Hugo", "Shirley", "Owaney", "Raphaël", "Enzo", "Stephan", "Aymeric", "Jerysan", "Areni", "Clément"
+  "Hugo", "Shirley", "Owaney", "Raphaël", "Enzo", "Stephan", "Aymeric", "Jerysan", "Arené", "Clément"
 ];
 
 function App() {
